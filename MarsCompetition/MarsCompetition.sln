@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarsCompetition", "MarsCompetition\MarsCompetition.csproj", "{47D62F83-9E2E-47F3-8DCA-6695720DFEB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarsCompetition", "MarsCompetition\MarsCompetition.csproj", "{92E3081A-FBA9-406D-8F6C-AF4E418F8268}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{47D62F83-9E2E-47F3-8DCA-6695720DFEB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47D62F83-9E2E-47F3-8DCA-6695720DFEB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47D62F83-9E2E-47F3-8DCA-6695720DFEB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47D62F83-9E2E-47F3-8DCA-6695720DFEB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E3081A-FBA9-406D-8F6C-AF4E418F8268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E3081A-FBA9-406D-8F6C-AF4E418F8268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E3081A-FBA9-406D-8F6C-AF4E418F8268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92E3081A-FBA9-406D-8F6C-AF4E418F8268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7D8186C7-7CA6-48E8-9FBC-D5299D2AD83E}
+		SolutionGuid = {26A0F73C-1D10-4865-848A-CC8D7EFE76B7}
 	EndGlobalSection
 EndGlobal

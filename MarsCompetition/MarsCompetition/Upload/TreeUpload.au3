@@ -1,0 +1,6 @@
+WinWait("Open","",1000)
+ControlFocus("Open","","Edit1")
+Sleep(1000)
+ControlSetText("Open","","Edit1","F:\Mars\MarsCompetition\MarsCompetition\MarsCompetition\Upload\Tree.jpg")
+ControlClick("Open","","Button1")
+Sleep(1000)
