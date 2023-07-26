@@ -4,11 +4,7 @@ using OpenQA.Selenium.Support.UI;
 namespace MarsCompetition.Utilities
 {
     public class Wait : ExcelLib
-    {
-        //public static void ImplicitWait(int second)
-        //{
-        //    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(second);
-        //}
+    {       
         public static void WaitToBeClickable(IWebDriver driver, string locatorValue, string locatorType, int seconds)
         {
             //static allows you to use without creating a object

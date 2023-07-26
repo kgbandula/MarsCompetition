@@ -8,7 +8,51 @@ using SeleniumExtras.PageObjects;
 namespace MarsCompetition.Pages
 {
     public class ShareSkillPage : CommonDriver
-    {        
+    {
+        #region shareskill web elements            
+        private static IWebElement titleText => driver.FindElement(By.Name("title"));
+        private static IWebElement descriptionText => driver.FindElement(By.Name("description"));
+        private IWebElement categoryDropdown => driver.FindElement(By.Name("categoryId"));
+        private IWebElement subCategoryDropdown => driver.FindElement(By.Name("subcategoryId"));
+        private IWebElement addNewTag => driver.FindElement(By.XPath("//div[@class='form-wrapper field  ']//input[@aria-label='Add new tag']"));
+        private IWebElement serviceTypeHourly => driver.FindElement(By.XPath("//input[@name='serviceType'and@value='0']"));
+        private IWebElement serviceTypeOneOff => driver.FindElement(By.Name("serviceType"));
+        private IWebElement locationTypeOnSite => driver.FindElement(By.XPath("//input[@name='locationType'and@value='0']"));
+        private IWebElement locationTypeOnline => driver.FindElement(By.XPath("//input[@name='locationType'and@value='1']"));
+        private IWebElement startDate => driver.FindElement(By.Name("startDate"));
+        private IWebElement endDate => driver.FindElement(By.Name("endDate"));
+        private IWebElement dateSun => driver.FindElement(By.XPath("//input[@index='0'and@tabindex='0'and@name='Available'and@type='checkbox']"));
+        private IWebElement startTimeSun => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='0']"));
+        private IWebElement endTimeSun => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='0']"));
+        private IWebElement dateMon => driver.FindElement(By.XPath("//input[@index='1'and@tabindex='0'and@name='Available'and@type='checkbox']"));
+        private IWebElement startTimeMon => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='1']"));
+        private IWebElement endTimeMon => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='1']"));
+        private IWebElement dateTue => driver.FindElement(By.XPath("//input[@index='2'and@tabindex='0'and@name='Available'and@type='checkbox']"));
+        private IWebElement startTimeTue => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='2']"));
+        private IWebElement endTimeTue => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='2']"));
+        private IWebElement dateWed => driver.FindElement(By.XPath("//input[@index='3'and@tabindex='0'and@name='Available'and@type='checkbox']"));
+        private IWebElement startTimeWed => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='3']"));
+        private IWebElement endTimeWed => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='3']"));
+        private IWebElement dateThu => driver.FindElement(By.XPath("//input[@index='4'and@tabindex='0'and@name='Available'and@type='checkbox']"));
+        private IWebElement startTimeThu => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='4']"));
+        private IWebElement endTimeThu => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='4']"));
+        private IWebElement dateFri => driver.FindElement(By.XPath("//input[@index='5'and@tabindex='0'and@name='Available'and@type='checkbox']"));
+        private IWebElement startTimeFri => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='5']"));
+        private IWebElement endTimeFri => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='5']"));
+        private IWebElement dateSat => driver.FindElement(By.XPath("//input[@index='6'and@tabindex='0'and@name='Available'and@type='checkbox']"));
+        private IWebElement startTimeSat => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='6']"));
+        private IWebElement endTimeSat => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='6']"));
+        private IWebElement skillTradeCredit => driver.FindElement(By.XPath("//input[@name='skillTrades'and@value='false']"));
+        private IWebElement creditAmount => driver.FindElement(By.XPath("//input[@name='charge'and@placeholder='Amount']"));
+        private IWebElement skillTradeSkillExchange => driver.FindElement(By.XPath("//input[@name='skillTrades'and@value='true']"));
+        private IWebElement addNewTag2 => driver.FindElement(By.XPath("//div[@class='form-wrapper']//input[@aria-label='Add new tag']"));
+        private IWebElement workSampleUpload => driver.FindElement(By.XPath("//i[@class='huge plus circle icon padding-25']"));
+        private IWebElement activeActive => driver.FindElement(By.XPath("(//*[text()='Active'])[2]"));
+        private IWebElement activeHidden => driver.FindElement(By.XPath("//*[text()='Hidden']"));
+        private IWebElement saveService => driver.FindElement(By.XPath("//input[@value=\"Save\"and@type='button']"));
+        private IWebElement saveShareSkillMessage => driver.FindElement(By.XPath("//*[contains(text(),'Service Listing Added successfully')]"));
+        #region share skill web elements
+
         public void CreateShareSkill(string Title, string Description, string Category6, string SubCategory6, string TagA6 )
         {
             //Title                        
@@ -225,8 +269,7 @@ namespace MarsCompetition.Pages
 
         }
         public void SelectActiveStatus(string ActiveStatus)
-        {
-            //Active type              
+        {                        
             //Active type hidden
             //activeHidden.Click();
             if (ActiveStatus == "Hidden")
@@ -241,9 +284,7 @@ namespace MarsCompetition.Pages
         {
             //Save the service
             saveService.Click();
-
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(50));
-            //IWebElement saveShareSkillMessage = wait.Until(e => e.FindElement(By.XPath("//*[contains(text(),'Service Listing Added successfully')]")));
+           
             if (saveShareSkillMessage.Text == "Service Listing Added successfully")
             {
                 //Assert.That(saveShareSkillMessage.Text == "Service Listing Added successfully", "Adding share skill is unsuccessful.");
@@ -251,141 +292,12 @@ namespace MarsCompetition.Pages
             }          
             Screenshot saveSkill = (driver as ITakesScreenshot).GetScreenshot();
             saveSkill.SaveAsFile(@"F:\Mars\MarsCompetition\MarsCompetition\MarsCompetition\Report\Screenshots\06 Share skill saved.png");
-
         }
         public string ValidateCreateShareSkill()
         {           
             //validate create share skill
-            return saveShareSkillMessage.Text;
-            
+            return saveShareSkillMessage.Text;            
         }        
-        //Title explain            
-        private static IWebElement titleText => driver.FindElement(By.Name("title"));
-
-        //Description text
-        private static IWebElement descriptionText => driver.FindElement(By.Name("description"));
-
-        //Click on category dropdown           
-        //select category 1 Graphics & Design, 2 Digital Marketing, 3 Writing & Translation, 4 Video & Animation, 5 Music & Audio, 6 Programming & Tech, 7 Business, 8 Fun & Lifestyle
-        private IWebElement categoryDropdown => driver.FindElement(By.Name("categoryId"));
-
-        //subcatory selection value "1 Graphics & Design" = 1 Logo Design, 2 Book & Album covers, 3 Flyers & Brochures, 4 Web & Mobile Design, 5 Search & Display Marketing
-        //subcatory selection value "2 Digital Marketing" = 1 Social Media Marketing, 2 Content Marketing, 3 Video Marketing, 4 Email Marketing, 5 Search & Display Marketing
-        //subcatory selection value "3 Writing & Translation" = 1 Resumes & Cover Letters, 2 Proof Reading & Editing, 3 Translation, 4 Creative Writing, 5 Business Copywriting
-        //subcatory selection value "4 Video & Animation" = 1 Promotional Videos, 2 Editing & Post Production, 3 Lyric & Music Videos, 4 Other 
-        //subcatory selection value "5 Music & Audio" = 1 Mixing & Mastering, 2 Voice Over, 3 Song Writers & Composers, 4 Other
-        //subcatory selection value "6 Programming & Tech" = 1 WordPress, 2 Web & Mobile App, 3 Data Analysis & Reports, 4 QA, 5 Databases, 6 Other
-        //subcatory selection value "7 Business" = 1 Business Tips, 2 Presentations, 3 Market Advice, 4 Legal Consulting, 5 Financial Consulting, 6 Other
-        //subcatory selection value "8 Fun & Lifestyle" = 1 Online Lessons, 2 Relationship Advice, 3 Astrology, 4 Health, Nutrition & Fitness, 5 Gaming, 6 Other
-        private IWebElement subCategoryDropdown => driver.FindElement(By.Name("subcategoryId"));
-
-        //Add a new tag
-        private IWebElement addNewTag => driver.FindElement(By.XPath("//div[@class='form-wrapper field  ']//input[@aria-label='Add new tag']"));
-
-        //service type radio button
-        //service Type Hourly;
-        private IWebElement serviceTypeHourly => driver.FindElement(By.XPath("//input[@name='serviceType'and@value='0']"));
-
-        //service Type one-off;
-        private IWebElement serviceTypeOneOff => driver.FindElement(By.Name("serviceType"));
-
-        //Location type on-site
-        private IWebElement locationTypeOnSite => driver.FindElement(By.XPath("//input[@name='locationType'and@value='0']"));
-        //Location type on-line
-        private IWebElement locationTypeOnline => driver.FindElement(By.XPath("//input[@name='locationType'and@value='1']"));
-
-        //start date 
-        private IWebElement startDate => driver.FindElement(By.Name("startDate"));
-
-        //end date
-        private IWebElement endDate => driver.FindElement(By.Name("endDate"));
-
-        //Sunday 
-        private IWebElement dateSun => driver.FindElement(By.XPath("//input[@index='0'and@tabindex='0'and@name='Available'and@type='checkbox']"));
-
-        //Time start
-        private IWebElement startTimeSun => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='0']"));
-
-        //Time end
-        private IWebElement endTimeSun => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='0']"));
-
-        //Monday
-        private IWebElement dateMon => driver.FindElement(By.XPath("//input[@index='1'and@tabindex='0'and@name='Available'and@type='checkbox']"));
-
-        //Time start
-        private IWebElement startTimeMon => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='1']"));
-
-        //Time end
-        private IWebElement endTimeMon => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='1']"));
-
-        //Tuesday
-        private IWebElement dateTue => driver.FindElement(By.XPath("//input[@index='2'and@tabindex='0'and@name='Available'and@type='checkbox']"));
-
-        //Time start
-        private IWebElement startTimeTue => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='2']"));
-
-        //Time end
-        private IWebElement endTimeTue => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='2']"));
-
-        //Wednesday
-        private IWebElement dateWed => driver.FindElement(By.XPath("//input[@index='3'and@tabindex='0'and@name='Available'and@type='checkbox']"));
-
-        //Time start
-        private IWebElement startTimeWed => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='3']"));
-
-        //Time end
-        private IWebElement endTimeWed => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='3']"));
-
-        //Thursday
-        private IWebElement dateThu => driver.FindElement(By.XPath("//input[@index='4'and@tabindex='0'and@name='Available'and@type='checkbox']"));
-
-        //Time start
-        private IWebElement startTimeThu => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='4']"));
-
-        //Time end
-        private IWebElement endTimeThu => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='4']"));
-
-        //Friday
-        private IWebElement dateFri => driver.FindElement(By.XPath("//input[@index='5'and@tabindex='0'and@name='Available'and@type='checkbox']"));
-
-        //Time start
-        private IWebElement startTimeFri => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='5']"));
-
-        //Time end
-        private IWebElement endTimeFri => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='5']"));
-
-        //Saturday
-        private IWebElement dateSat => driver.FindElement(By.XPath("//input[@index='6'and@tabindex='0'and@name='Available'and@type='checkbox']"));
-
-        //Time start
-        private IWebElement startTimeSat => driver.FindElement(By.XPath("//input[@name='StartTime'and@placeholder='Start time'and@index='6']"));
-
-        //Time end
-        private IWebElement endTimeSat => driver.FindElement(By.XPath("//input[@name='EndTime'and@placeholder='End time'and@index='6']"));
-
-        //Select skill trade Credit
-        private IWebElement skillTradeCredit => driver.FindElement(By.XPath("//input[@name='skillTrades'and@value='false']"));
-
-        //Enter credit amount
-        private IWebElement creditAmount => driver.FindElement(By.XPath("//input[@name='charge'and@placeholder='Amount']"));
-
-        //Select skill trade skill exchange
-        private IWebElement skillTradeSkillExchange => driver.FindElement(By.XPath("//input[@name='skillTrades'and@value='true']"));
-
-        private IWebElement addNewTag2 => driver.FindElement(By.XPath("//div[@class='form-wrapper']//input[@aria-label='Add new tag']"));
-
-        //Work sample file upload
-        private IWebElement workSampleUpload => driver.FindElement(By.XPath("//i[@class='huge plus circle icon padding-25']"));
-        //Type active active     
-        private IWebElement activeActive => driver.FindElement(By.XPath("(//*[text()='Active'])[2]"));
-        //Type active hidden
-        private IWebElement activeHidden => driver.FindElement(By.XPath("//*[text()='Hidden']"));
-
-        //Save the service
-        private IWebElement saveService => driver.FindElement(By.XPath("//input[@value=\"Save\"and@type='button']"));
-
-        //Assert edited share skill
-        private IWebElement saveShareSkillMessage => driver.FindElement(By.XPath("//*[contains(text(),'Service Listing Added successfully')]"));
-
+        
     }
 }

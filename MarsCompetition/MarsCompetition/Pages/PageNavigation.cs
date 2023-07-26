@@ -7,12 +7,12 @@ using SeleniumExtras.PageObjects;
 namespace MarsCompetition.Pages
 {
     public class PageNavigation : CommonDriver
-    {
-        //public IWebDriver driver;
-        //public PageNavigation()
-        //{
-        //    PageFactory.InitElements(driver, this);
-        //}
+    {                  
+        private static IWebElement title => driver.FindElement(By.XPath("//*[text()='Title']"));
+        private IWebElement navigateToShareSkill => driver.FindElement(By.XPath("//a[text()='Share Skill']"));
+        private static IWebElement imageText = driver.FindElement(By.XPath("//th[text()='Image']"));
+        private IWebElement navigateToManageListings => driver.FindElement(By.XPath("//a[text()='Manage Listings']"));
+
         public void GoToShareSkillPage()
         {            
             //Navigate to share skill page            
@@ -43,22 +43,6 @@ namespace MarsCompetition.Pages
             goToManagelistings.SaveAsFile(@"F:\Mars\MarsCompetition\MarsCompetition\MarsCompetition\Report\Screenshots\07 Navigated to manage listings.png");
         }
 
-        //Title explain            
-        private static IWebElement title => driver.FindElement(By.XPath("//*[text()='Title']"));
-        
-        //Goto Share Skill page
-        //[FindsBy(How= How.XPath, Using = "//a[text()='Share Skill']")]
-        //private IWebElement navigateToShareSkill { get; set; }
-        private IWebElement navigateToShareSkill => driver.FindElement(By.XPath("//a[text()='Share Skill']"));
-
-        //Find image text
-        private static IWebElement imageText = driver.FindElement(By.XPath("//th[text()='Image']"));
-
-
-        //Goto manage listings page
-        //[FindsBy(How = How.XPath, Using = "//a[text()='Manage Listings']")]
-        //private IWebElement navigateToManageListings { get; set; }
-        private IWebElement navigateToManageListings => driver.FindElement(By.XPath("//a[text()='Manage Listings']"));
-
+       
     }
 }
